@@ -1,8 +1,25 @@
-<?php
+<!DOCTYPE html>
+  <html>
+    <head>
+      <!--Import Google Icon Font-->
+      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+      <!--Import materialize.css-->
+      <link type="text/css" rel="stylesheet" href="{THEMES_PAGE}/assets/css/materialize.min.css"  media="screen,projection"/>
 
-/* 
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+      <!--Let browser know website is optimized for mobile-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    </head>
 
+    <body>
+        
+        {HEADER_SECTION}
+        
+        {BODY_SECTION}
+        
+        
+        {FOOTER_SECTION}
+
+      <!--JavaScript at end of body for optimized loading-->
+      <script type="text/javascript" src="{THEMES_PAGE}/assets/js/materialize.min.js"></script>
+    </body>
+  </html>
