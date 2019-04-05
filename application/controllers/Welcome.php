@@ -28,17 +28,20 @@ class Welcome extends CI_Controller {
 	public function index()
 	{
             $data = array(
-                'THEMES_PAGE'   => 'themes/'.$this->themes
+                'THEMES_PAGE'   => base_url('themes/'.$this->themes),
+                'URL_FORM_CARI' => site_url('cari/index')
             );
             
-            $data['HEADER_SECTION'] = $this->parser->parse($this->themes.'/layout/header/header', $data, true);
-            $data['BODY_SECTION']   = $this->parser->parse($this->themes.'/layout/content/body_layout', $data, true);
-            $data['FOOTER_SECTION'] = $this->parser->parse($this->themes.'/layout/footer/footer', $data, true);
+            $data['HEADER_SECTION']     = $this->parser->parse($this->themes.'/layout/header/header', $data, true);
+            
+            $data['CONTENT_SECTION']    = $this->parser->parse($this->themes.'/layout/form/search', $data, true);            
+            $data['BODY_SECTION']       = $this->parser->parse($this->themes.'/layout/content/body_layout', $data, true);
+            $data['FOOTER_SECTION']     = $this->parser->parse($this->themes.'/layout/footer/footer', $data, true);
             
             $data['PLUGINS_CSS']        = '';
             $data['PLUGINS_SCRIPT']     = '';
             $data['ADDOIN_SCRIPT']      = '';
             
-            $this->load->view($this->themes.'/layout/main_layout', $data);
+            $this->parser->parse($this->themes.'/layout/main_layout', $data);
 	}
 }
