@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Iklan extends CI_Controller {
+class Reset extends CI_Controller {
 
 	/**
 	 * Index Page for this controller.
@@ -25,30 +25,6 @@ class Iklan extends CI_Controller {
         } 
         
         function index($kata='')
-        {
-            
-            $data = array(
-                'THEMES_PAGE'   => base_url('themes/'.$this->themes)
-            );
-            
-            $data['HEADER_SECTION']     = $this->parser->parse($this->themes.'/layout/header/header', $data, true);
-            
-            $data['BREADCRUMBS_SECTION']    = $this->parser->parse($this->themes.'/layout/header/breadcrumbs', $data, true);
-            
-            $data['BODY_SECTION']           = $this->parser->parse($this->themes.'/layout/content/body_slayout', $data, true);
-            $data['FOOTER_SECTION']         = $this->parser->parse($this->themes.'/layout/footer/footer', $data, true);
-            
-            $data['PLUGINS_CSS']        = '';
-            $data['PLUGINS_SCRIPT']     = '';
-            $data['ADDOIN_SCRIPT']      = '';
-            
-            $this->parser->parse($this->themes.'/layout/main_layout', $data);
-            
-            
-        }
-        
-        
-        function Pasang($kata='')
         {
             
             $data = array(

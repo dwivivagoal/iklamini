@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Iklan extends CI_Controller {
+class Konfirmasi extends CI_Controller {
 
 	/**
 	 * Index Page for this controller.
