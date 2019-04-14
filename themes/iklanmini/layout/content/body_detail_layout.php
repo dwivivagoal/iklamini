@@ -23,7 +23,6 @@
                       <div class="row">
                         
                         <div class="col s12 m7">
-                            <h2 class="header">Horizontal Card</h2>
                             <div class="card horizontal">
                               <div class="card-image">
                                 <img src="https://lorempixel.com/100/190/nature/6">

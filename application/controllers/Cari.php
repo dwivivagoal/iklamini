@@ -22,11 +22,13 @@ class Cari extends CI_Controller {
         function __construct() {
             parent::__construct();
             $this->themes = $this->config->item('themes');
+            $this->load->model('Mdl_iklan');
         } 
         
         function index($kata='')
         {
-            
+            $iklan = $this->Mdl_iklan->getList();
+            print_r($iklan);
             $data = array(
                 'THEMES_PAGE'   => base_url('themes/'.$this->themes)
             );

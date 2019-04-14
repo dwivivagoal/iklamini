@@ -1,32 +1,16 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Iklan extends CI_Controller {
+class Pasang extends CI_Controller {
 
-	/**
-	 * Index Page for this controller.
-	 *
-	 * Maps to the following URL
-	 * 		http://example.com/index.php/welcome
-	 *	- or -
-	 * 		http://example.com/index.php/welcome/index
-	 *	- or -
-	 * Since this controller is set as the default controller in
-	 * config/routes.php, it's displayed at http://example.com/
-	 *
-	 * So any other public methods not prefixed with an underscore will
-	 * map to /index.php/welcome/<method_name>
-	 * @see https://codeigniter.com/user_guide/general/urls.html
-	 */
+    function __construct() {
+        parent::__construct();
+        $this->themes = $this->config->item('themes');
+    }
     
-        function __construct() {
-            parent::__construct();
-            $this->themes = $this->config->item('themes');
-        } 
-        
-        function index($kata='')
-        {
-            
+    
+    public function index()
+    {        
             $data = array(
                  'WEB_TITLE'     => $this->config->item('web_title').'Platform Pasang Iklan Digital Gratis',
                 'SITE_URL'      => site_url(),
@@ -38,6 +22,7 @@ class Iklan extends CI_Controller {
             
             $data['BREADCRUMBS_SECTION']    = $this->parser->parse($this->themes.'/layout/header/breadcrumbs', $data, true);
             
+            $data['CONTENT_SECTION']           = $this->parser->parse($this->themes.'/layout/form/pasang_iklan', $data, true);
             $data['BODY_SECTION']           = $this->parser->parse($this->themes.'/layout/content/body_layout', $data, true);
             $data['FOOTER_SECTION']         = $this->parser->parse($this->themes.'/layout/footer/footer', $data, true);
             
@@ -46,8 +31,5 @@ class Iklan extends CI_Controller {
             $data['ADDOIN_SCRIPT']      = '';
             
             $this->parser->parse($this->themes.'/layout/main_layout', $data);
-            
-            
-        }
-        
-}        
+    }        
+}            
