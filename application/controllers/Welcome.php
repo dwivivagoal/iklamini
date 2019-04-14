@@ -28,6 +28,9 @@ class Welcome extends CI_Controller {
 	public function index()
 	{
             $data = array(
+                'WEB_TITLE'     => $this->config->item('web_title').'Platform Pasang Iklan Digital Gratis',
+                'SITE_URL'      => site_url(),
+                'BASE_URL'      => base_url(),                
                 'THEMES_PAGE'   => base_url('themes/'.$this->themes),
                 'URL_FORM_CARI' => site_url('cari/index')
             );

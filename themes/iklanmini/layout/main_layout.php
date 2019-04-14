@@ -8,6 +8,7 @@
   <!-- CSS  -->
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link href="{THEMES_PAGE}/assets/css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  {PLUGINS_CSS}
   <link href="{THEMES_PAGE}/assets/css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
 </head>
 <body>
@@ -22,7 +23,10 @@
   <!--  Scripts-->
   <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
   <script src="{THEMES_PAGE}/assets/js/materialize.js"></script>
+  {PLUGINS_SCRIPT}
   <script src="{THEMES_PAGE}/assets/js/init.js"></script>
+  
+  {ADDON_SCRIPT}
 
   </body>
 </html>

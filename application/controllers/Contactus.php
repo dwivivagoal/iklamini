@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Konfirmasi extends CI_Controller {
+class Contactus extends CI_Controller {
 
 	/**
 	 * Index Page for this controller.
@@ -31,41 +31,13 @@ class Konfirmasi extends CI_Controller {
                  'WEB_TITLE'     => $this->config->item('web_title').'Platform Pasang Iklan Digital Gratis',
                 'SITE_URL'      => site_url(),
                 'BASE_URL'      => base_url(),                
-                'THEMES_PAGE'   => base_url('themes/'.$this->themes)
+               'THEMES_PAGE'   => base_url('themes/'.$this->themes)
             );
             
             $data['HEADER_SECTION']     = $this->parser->parse($this->themes.'/layout/header/header', $data, true);
             
             $data['BREADCRUMBS_SECTION']    = $this->parser->parse($this->themes.'/layout/header/breadcrumbs', $data, true);
-            
-            $data['BODY_SECTION']           = $this->parser->parse($this->themes.'/layout/content/body_layout', $data, true);
-            $data['FOOTER_SECTION']         = $this->parser->parse($this->themes.'/layout/footer/footer', $data, true);
-            
-            $data['PLUGINS_CSS']        = '';
-            $data['PLUGINS_SCRIPT']     = '';
-            $data['ADDOIN_SCRIPT']      = '';
-            
-            $this->parser->parse($this->themes.'/layout/main_layout', $data);
-            
-            
-        }
-        
-        
-        function Payment($kata='')
-        {
-            
-            $data = array(
-                 'WEB_TITLE'     => $this->config->item('web_title').'Platform Pasang Iklan Digital Gratis',
-                'SITE_URL'      => site_url(),
-                'BASE_URL'      => base_url(),                
-                'THEMES_PAGE'   => base_url('themes/'.$this->themes)
-            );
-            
-            $data['HEADER_SECTION']     = $this->parser->parse($this->themes.'/layout/header/header', $data, true);
-            
-            $data['BREADCRUMBS_SECTION']    = $this->parser->parse($this->themes.'/layout/header/breadcrumbs', $data, true);
-            
-            $data['CONTENT_SECTION']        = $this->parser->parse($this->themes.'/layout/form/payment_confirm', $data, true);
+            $data['CONTENT_SECTION']           = $this->parser->parse($this->themes.'/layout/form/contactus', $data, true);
             $data['BODY_SECTION']           = $this->parser->parse($this->themes.'/layout/content/body_layout', $data, true);
             $data['FOOTER_SECTION']         = $this->parser->parse($this->themes.'/layout/footer/footer', $data, true);
             

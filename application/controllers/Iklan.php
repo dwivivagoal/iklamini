@@ -28,14 +28,17 @@ class Iklan extends CI_Controller {
         {
             
             $data = array(
-                'THEMES_PAGE'   => base_url('themes/'.$this->themes)
+                 'WEB_TITLE'     => $this->config->item('web_title').'Platform Pasang Iklan Digital Gratis',
+                'SITE_URL'      => site_url(),
+                'BASE_URL'      => base_url(),                
+               'THEMES_PAGE'   => base_url('themes/'.$this->themes)
             );
             
             $data['HEADER_SECTION']     = $this->parser->parse($this->themes.'/layout/header/header', $data, true);
             
             $data['BREADCRUMBS_SECTION']    = $this->parser->parse($this->themes.'/layout/header/breadcrumbs', $data, true);
             
-            $data['BODY_SECTION']           = $this->parser->parse($this->themes.'/layout/content/body_slayout', $data, true);
+            $data['BODY_SECTION']           = $this->parser->parse($this->themes.'/layout/content/body_layout', $data, true);
             $data['FOOTER_SECTION']         = $this->parser->parse($this->themes.'/layout/footer/footer', $data, true);
             
             $data['PLUGINS_CSS']        = '';
@@ -52,14 +55,17 @@ class Iklan extends CI_Controller {
         {
             
             $data = array(
-                'THEMES_PAGE'   => base_url('themes/'.$this->themes)
+                 'WEB_TITLE'     => $this->config->item('web_title').'Platform Pasang Iklan Digital Gratis',
+                'SITE_URL'      => site_url(),
+                'BASE_URL'      => base_url(),                
+               'THEMES_PAGE'   => base_url('themes/'.$this->themes)
             );
             
             $data['HEADER_SECTION']     = $this->parser->parse($this->themes.'/layout/header/header', $data, true);
             
             $data['BREADCRUMBS_SECTION']    = $this->parser->parse($this->themes.'/layout/header/breadcrumbs', $data, true);
             
-            $data['BODY_SECTION']           = $this->parser->parse($this->themes.'/layout/content/body_slayout', $data, true);
+            $data['BODY_SECTION']           = $this->parser->parse($this->themes.'/layout/content/body_layout', $data, true);
             $data['FOOTER_SECTION']         = $this->parser->parse($this->themes.'/layout/footer/footer', $data, true);
             
             $data['PLUGINS_CSS']        = '';

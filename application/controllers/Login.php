@@ -28,22 +28,65 @@ class Login extends CI_Controller {
         {
             
             $data = array(
-                'THEMES_PAGE'   => base_url('themes/'.$this->themes)
+                'WEB_TITLE'     => $this->config->item('web_title').'Platform Pasang Iklan Digital Gratis',
+                'SITE_URL'      => site_url(),
+                'BASE_URL'      => base_url(),       
+                'URL_CHECK_LOGIN'   => site_url('login/checklogin'),
+                'THEMES_PAGE'       => base_url('themes/'.$this->themes)
             );
             
             $data['HEADER_SECTION']     = $this->parser->parse($this->themes.'/layout/header/header', $data, true);
             
             $data['BREADCRUMBS_SECTION']    = $this->parser->parse($this->themes.'/layout/header/breadcrumbs', $data, true);
             
-            $data['BODY_SECTION']           = $this->parser->parse($this->themes.'/layout/content/body_slayout', $data, true);
+            $data['CONTENT_SECTION']        = $this->parser->parse($this->themes.'/layout/form/login', $data, true);
+            $data['BODY_SECTION']           = $this->parser->parse($this->themes.'/layout/content/body_layout', $data, true);
+            $data['BODY_SECTION']    .= $this->parser->parse($this->themes.'/layout/modal/loader', $data, true);
+            
             $data['FOOTER_SECTION']         = $this->parser->parse($this->themes.'/layout/footer/footer', $data, true);
             
             $data['PLUGINS_CSS']        = '';
             $data['PLUGINS_SCRIPT']     = '';
-            $data['ADDOIN_SCRIPT']      = '';
+            $data['ADDON_SCRIPT']      = $this->parser->parse($this->themes.'/layout/common/login_script', $data, true);
             
             $this->parser->parse($this->themes.'/layout/main_layout', $data);
             
             
+        }
+        
+        function checklogin()
+        {
+            $params = $this->input->post();
+            $this->load->library('form_validation');
+            $this->form_validation->set_rules('email', 'Email', 'required');
+            $this->form_validation->set_rules('password', 'Password', 'required');
+             
+            if ($this->form_validation->run() == FALSE)
+            {
+                   $data = array(
+                        'status'    => false,
+                        'msg'       => 'Login Gagal :: Silahkan isi Email dan Password yang benar',
+                        
+                    );
+             }
+            else
+            {
+            
+                $this->load->model('Mdl_login');
+                $data = array();
+                if ($this->Mdl_login->checklogin($params)){
+                    $data = array(
+                        'status'    => true,
+                        'msg'       => 'Login Berhasil :: Tunggu Sebentar'
+                    );
+                } else {
+                    $data = array(
+                        'status'    => false,
+                        'msg'       => 'Login Gagal :: Silahkan isi Email dan Password yang benar'
+                    );
+                };
+            }
+            
+            echo json_encode($data);
         }
 }        

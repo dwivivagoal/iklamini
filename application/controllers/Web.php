@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Daftar extends CI_Controller {
+class Web extends CI_Controller {
 
 	/**
 	 * Index Page for this controller.
@@ -24,29 +24,27 @@ class Daftar extends CI_Controller {
             $this->themes = $this->config->item('themes');
         } 
         
-        function index($kata='')
-        {
-            
+        
+	public function index()
+	{
             $data = array(
-                 'WEB_TITLE'     => $this->config->item('web_title').'Platform Pasang Iklan Digital Gratis',
+                'WEB_TITLE'     => $this->config->item('web_title').'Platform Pasang Iklan Digital Gratis',
                 'SITE_URL'      => site_url(),
                 'BASE_URL'      => base_url(),                
-               'THEMES_PAGE'   => base_url('themes/'.$this->themes)
+                'THEMES_PAGE'   => base_url('themes/'.$this->themes),
+                'URL_FORM_CARI' => site_url('cari/index')
             );
             
             $data['HEADER_SECTION']     = $this->parser->parse($this->themes.'/layout/header/header', $data, true);
             
-            $data['BREADCRUMBS_SECTION']    = $this->parser->parse($this->themes.'/layout/header/breadcrumbs', $data, true);
-            $data['CONTENT_SECTION']           = $this->parser->parse($this->themes.'/layout/form/register', $data, true);
-            $data['BODY_SECTION']           = $this->parser->parse($this->themes.'/layout/content/body_layout', $data, true);
-            $data['FOOTER_SECTION']         = $this->parser->parse($this->themes.'/layout/footer/footer', $data, true);
+            $data['CONTENT_SECTION']    = $this->parser->parse($this->themes.'/layout/content/web', $data, true);            
+            $data['BODY_SECTION']       = $this->parser->parse($this->themes.'/layout/content/body_layout', $data, true);
+            $data['FOOTER_SECTION']     = $this->parser->parse($this->themes.'/layout/footer/footer', $data, true);
             
             $data['PLUGINS_CSS']        = '';
             $data['PLUGINS_SCRIPT']     = '';
             $data['ADDOIN_SCRIPT']      = '';
             
             $this->parser->parse($this->themes.'/layout/main_layout', $data);
-            
-            
-        }
-}        
+	}
+}

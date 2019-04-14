@@ -11,19 +11,19 @@
         <div class="col l3 s12">
           <h5 class="white-text">Akun Saya</h5>
           <ul>
-            <li><a class="white-text" href="#!">Daftar Baru</a></li>
-            <li><a class="white-text" href="#!">Login</a></li>
-            <li><a class="white-text" href="#!">Iklan Saya</a></li>
-            <li><a class="white-text" href="#!">Profile Saya</a></li>
+            <li><a class="white-text" href="{SITE_ULR}/register">Daftar Baru</a></li>
+            <li><a class="white-text" href="{SITE_ULR}/login">Login</a></li>
+            <li><a class="white-text" href="{SITE_ULR}/iklan/my">Iklan Saya</a></li>
+            <li><a class="white-text" href="{SITE_ULR}/member/profile">Profile Saya</a></li>
           </ul>
         </div>
         <div class="col l3 s12">
           <h5 class="white-text">Terhubung Ke IklanMini</h5>
           <ul>
-            <li><a class="white-text" href="#!">Tentang IklanMini</a></li>
-            <li><a class="white-text" href="#!">Layanan IklanMini</a></li>
-            <li><a class="white-text" href="#!">Konfirmasi Pembayaran</a></li>
-            <li><a class="white-text" href="#!">Hubungi Kami</a></li>
+            <li><a class="white-text" href="{SITE_URL}/web/about_us">Tentang IklanMini</a></li>
+            <li><a class="white-text" href="{SITE_URL}/web/layanan">Layanan IklanMini</a></li>
+            <li><a class="white-text" href="{SITE_URL}/konfirmasi/payment">Konfirmasi Pembayaran</a></li>
+            <li><a class="white-text" href="{SITE_URL}/contactus">Hubungi Kami</a></li>
           </ul>
         </div>
       </div>

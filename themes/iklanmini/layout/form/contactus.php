@@ -1,11 +1,11 @@
 <div class="container">
     <div class="row">
-      <form class="col s6 offset-s9">
+      <form class="col s8 offset-s6">
           
           <div class="card blue-grey darken-1">
             <div class="card-content white-text">
-              <span class="card-title">Register</span>
-              <p>Silahkan isi form terlebih dahulu untuk bergabung bersama kami.</p>
+              <span class="card-title">Contact Us</span>
+              <p>Silahkan isi form terlebih dahulu untuk meninggalkan pesan.</p>
               <br>
               <div class="row">
                 <div class="input-field col s12">
@@ -21,22 +21,15 @@
               </div>
               <div class="row">
                 <div class="input-field col s12">
-                  <input placeholder="No HP" id="no_hp" type="text" class="validate">
-                  <label for="no_hp">No HP</label>
+                  <input placeholder="Judul Pesan" id="judul" type="text" class="validate">
+                  <label for="judul">Judul</label>
                 </div>
               </div>
               
               <div class="row">
                 <div class="input-field col s12">
-                  <input placeholder="Password" id="password" type="password" class="validate">
-                  <label for="password">Password</label>
-                </div>
-              </div>
-              
-              <div class="row">
-                <div class="input-field col s12">
-                  <input placeholder="Ulang Password" id="repassword" type="password" class="validate">
-                  <label for="repassword">Ulang Password</label>
+                  <textarea class="materialize-textarea" id="isi"></textarea>
+                  <label for="isi">Isi Pesan</label>
                 </div>
               </div>
               
