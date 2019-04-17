@@ -27,17 +27,20 @@ class Cari extends CI_Controller {
         
         function index($kata='')
         {
-            $iklan = $this->Mdl_iklan->getList();
-            print_r($iklan);
             $data = array(
                 'THEMES_PAGE'   => base_url('themes/'.$this->themes)
             );
             
-            $data['HEADER_SECTION']     = $this->parser->parse($this->themes.'/layout/header/header', $data, true);
+            $data['IKLAN_LIST']         = $this->Mdl_iklan->getList();
+                        
+            $data['HEADER_SECTION']     = $this->parser->parse($this->themes.'/layout/header/header', $data, true);            
+            $data['BREADCRUMBS_SECTION']= $this->parser->parse($this->themes.'/layout/header/breadcrumbs', $data, true);
             
-            $data['BREADCRUMBS_SECTION']    = $this->parser->parse($this->themes.'/layout/header/breadcrumbs', $data, true);            
-            $data['BODY_SECTION']           = $this->parser->parse($this->themes.'/layout/content/body_detail_layout', $data, true);
-            $data['FOOTER_SECTION']         = $this->parser->parse($this->themes.'/layout/footer/footer', $data, true);
+            $data['FILTER_SECTION']     = $this->parser->parse($this->themes.'/layout/form/filter', $data, true);
+            $data['MINI_ADS']           = $this->parser->parse($this->themes.'/layout/content/mini_ads', $data, true);
+            
+            $data['BODY_SECTION']       = $this->parser->parse($this->themes.'/layout/content/body_detail_layout', $data, true);
+            $data['FOOTER_SECTION']     = $this->parser->parse($this->themes.'/layout/footer/footer', $data, true);
             
             $data['PLUGINS_CSS']        = '';
             $data['PLUGINS_SCRIPT']     = '';

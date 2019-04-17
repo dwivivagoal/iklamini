@@ -20,7 +20,9 @@ class Mdl_iklan extends CI_Model {
             $data[] = array(
                 'title' => $row->iklan_title,
                 'isi'   => $row->iklan_title,    
-                'link'  => $row->iklan_link
+                'link'  => $row->iklan_link,
+                'view'  => 0,
+                'hits'  => 0,
             );
         endforeach;
         return $data;
