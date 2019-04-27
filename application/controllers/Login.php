@@ -32,7 +32,8 @@ class Login extends CI_Controller {
                 'SITE_URL'      => site_url(),
                 'BASE_URL'      => base_url(),       
                 'URL_CHECK_LOGIN'   => site_url('login/checklogin'),
-                'THEMES_PAGE'       => base_url('themes/'.$this->themes)
+                'THEMES_PAGE'       => base_url('themes/'.$this->themes),
+                'image_captcha'     => show_captcha()
             );
             
             $data['HEADER_SECTION']     = $this->parser->parse($this->themes.'/layout/header/header', $data, true);

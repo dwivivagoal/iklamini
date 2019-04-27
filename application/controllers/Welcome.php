@@ -6,11 +6,13 @@ class Welcome extends CI_Controller {
         function __construct() {
             parent::__construct();
             $this->themes = $this->config->item('themes');
+            $this->load->model('Mdl_category');
         } 
         
         
 	public function index()
 	{
+            $category = $this->Mdl_category->getListCat();
             $data = array(
                 'WEB_TITLE'     => $this->config->item('web_title').'Platform Pasang Iklan Digital Gratis',
                 'SITE_URL'      => site_url(),
@@ -21,7 +23,19 @@ class Welcome extends CI_Controller {
             
             $data['HEADER_SECTION']     = $this->parser->parse($this->themes.'/layout/header/header', $data, true);
             
-            $data['CONTENT_SECTION']    = $this->parser->parse($this->themes.'/layout/form/search', $data, true);    
+            $data['CONTENT_SECTION']    = $this->parser->parse($this->themes.'/layout/form/search', $data, true); 
+            $data['CATEGORY_LIST'][]['CATEGORY_INDEX_LIST']    = array(
+                array(),
+                array(),
+                array()
+            );
+            $data['CATEGORY_LIST'][]['CATEGORY_INDEX_LIST']    = array(
+                array(),
+                array(),
+                array()
+            );
+            
+            $data['CONTENT_SECTION']    .= $this->parser->parse($this->themes.'/layout/content/kategori_index', $data, true);    
             $data['BODY_SECTION']       = $this->parser->parse($this->themes.'/layout/content/body_layout', $data, true);
             $data['FOOTER_SECTION']     = $this->parser->parse($this->themes.'/layout/footer/footer', $data, true);
             

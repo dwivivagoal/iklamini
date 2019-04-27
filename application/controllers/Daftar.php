@@ -28,10 +28,11 @@ class Daftar extends CI_Controller {
         {
             
             $data = array(
-                 'WEB_TITLE'     => $this->config->item('web_title').'Platform Pasang Iklan Digital Gratis',
+                'WEB_TITLE'     => $this->config->item('web_title').'Platform Pasang Iklan Digital Gratis',
                 'SITE_URL'      => site_url(),
                 'BASE_URL'      => base_url(),                
-               'THEMES_PAGE'   => base_url('themes/'.$this->themes)
+                'THEMES_PAGE'   => base_url('themes/'.$this->themes),
+                'image_captcha' => show_captcha()
             );
             
             $data['HEADER_SECTION']     = $this->parser->parse($this->themes.'/layout/header/header', $data, true);

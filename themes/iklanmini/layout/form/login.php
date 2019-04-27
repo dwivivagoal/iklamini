@@ -20,6 +20,25 @@
                 </div>
               </div>
               
+              <div class="row">
+                    <div class="input-field col s6">
+                        {image_captcha}
+                    </div>  
+                    <div class="input-field col s6">
+                      <input placeholder="Kode Captcha" id="captcha" name="captcha" type="text" class="validate" required="required">
+                      <label for="link">Captcha</label>
+                    </div>
+              </div>
+              
+              <div class="row">
+                <div class="input-field col s12">
+                    <label>
+                        <input type="checkbox" />
+                        <span>Ingat Saya</span>
+                    </label>
+                </div>
+              </div>
+              
             </div>
             <div class="card-action">
                 <buton data-target="modal1" class="waves-effect waves-light btn modal-trigger btn-iklanmini-login" type='submit'>Login</buton>

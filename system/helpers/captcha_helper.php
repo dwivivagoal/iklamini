@@ -130,7 +130,8 @@ if ( ! function_exists('create_captcha'))
 			$rand_max = $pool_length - 1;
 
 			// PHP7 or a suitable polyfill
-			if (function_exists('random_int'))
+			/*
+                        if (function_exists('random_int'))
 			{
 				try
 				{
@@ -146,6 +147,29 @@ if ( ! function_exists('create_captcha'))
 					$word = '';
 				}
 			}
+                        */
+                        
+                        if (function_exists('random_int'))
+                        {
+                            try
+                            {
+                                for ($i = 0; $i < $word_length; $i++)
+                                {
+                                    $word .= $pool[random_int(0, $rand_max)];
+                                }
+                            }
+                            catch (Exception $e)
+                            {
+                                // This means fallback to the next possible
+                                // alternative to random_int()
+                                $word = '';
+                            }
+                        }else{ //PHP5
+                            for ($i = 0; $i < $word_length; $i++)
+                            {
+                                $word .= $pool[rand(0, strlen($pool) - 1)];
+                            }
+                        }
 		}
 
 		if (empty($word))
@@ -258,9 +282,9 @@ if ( ! function_exists('create_captcha'))
 		// -----------------------------------
 		$theta		= 1;
 		$thetac		= 7;
-		$radius		= 16;
-		$circles	= 20;
-		$points		= 32;
+		$radius		= 8;
+		$circles	= 120;
+		$points		= 132;
 
 		for ($i = 0, $cp = ($circles * $points) - 1; $i < $cp; $i++)
 		{
